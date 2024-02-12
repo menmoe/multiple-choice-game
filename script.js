@@ -21,7 +21,7 @@ function loadButtons() {
         optionsElement.appendChild(btn)
 
     })
-    // randomize order of elements
+    shuffleChildElements(optionsElement)
 }
 
 function selected(target) {
@@ -53,3 +53,26 @@ submitBtn.onclick = () => {
 }
 
 loadButtons()
+
+
+// functions to shuffle that I got from the mam project to shuffle elements
+function shuffleChildElements(parentElement) {
+    let childrenArray = [...parentElement.children];
+    childrenArray = shuffleArray(childrenArray);
+
+    parentElement.innerHTML = '';
+    childrenArray.forEach(child => {
+        parentElement.appendChild(child);
+    });
+}
+function shuffleArray(array) { // Uses the Fisher-Yates Method
+    var m = array.length, t, i;
+    while (m) {
+        i = Math.floor(Math.random() * m--);
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+    }
+
+    return array;
+}
