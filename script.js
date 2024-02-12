@@ -15,6 +15,7 @@ function loadButtons() {
     questionTitle.innerHTML = data.question
     data.options.forEach(option => {
         const btn = document.createElement('button')
+        btn.classList.add('option-button')
         btn.innerHTML = option
         btn.onclick = () => { selected(btn) }
         optionsElement.appendChild(btn)
